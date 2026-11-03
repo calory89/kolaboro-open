@@ -86,6 +86,5 @@ See [SECURITY.md](SECURITY.md). The contact is in https://kolaboro.com/.well-kno
 
 ## Licence
 
-Apache License 2.0, see [LICENSE](LICENSE). Some files carry an MIT notice in their header because they were first
-published on kolaboro.com under MIT; those files are available under either licence. The open data itself
+MIT, see [LICENSE](LICENSE), the same licence the files carry on kolaboro.com. The open data itself
 (https://kolaboro.com/data/) is CC BY 4.0.

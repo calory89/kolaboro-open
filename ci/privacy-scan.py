@@ -7,7 +7,7 @@ import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'.git', 'node_modules', '__pycache__', '.hypothesis', 'dist'}
-SKIP_FILES = {'LICENSE', 'package-lock.json'}  # Apache licence text; lockfile holds npm registry URLs and integrity hashes only
+SKIP_FILES = {'LICENSE', 'package-lock.json'}  # licence text; lockfile holds npm registry URLs and integrity hashes only
 SELF = os.path.relpath(os.path.abspath(__file__), ROOT)
 
 SECRETS = [
