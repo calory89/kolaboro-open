@@ -1,11 +1,4 @@
 {
  "about": "Discrepancies found by these tests and reported for a fix. Each is still tested on every run and published as failing; it does not fail CI. Remove an entry when the fix ships; the run then fails if the problem comes back.",
- "issues": [
-  {
-   "id": "index_js_python_agree",
-   "found": "2026-11-03",
-   "summary": "The market transparency index shown in the browser (transparency-index/ti-core.js) and the open Python rule (open/scoring.py transparency_index) can differ by 0.1 point: both round a floating-point sum, JavaScript half up with Math.round and Python half to even with round(), and they add the terms in a different order.",
-   "fix": "Compute the index from integers in both languages: x = 100*sum(score) + 50*sum(vscore) + 100*projects_without_flags (for six-check projects); index = floor((2*x + n) / (2*n)) / 10, i.e. round half up of x/n tenths."
-  }
- ]
+ "issues": []
 }

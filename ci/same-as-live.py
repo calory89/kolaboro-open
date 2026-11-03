@@ -2,14 +2,15 @@
 """Every file in open/, p/ and transparency-index/ must be byte-identical to the copy served at https://kolaboro.com/<same path>.
 This is what makes the repository a faithful mirror of the published code, not a cleaned-up version of it.
 HTML fixtures are compared after removing the analytics script tags the site adds when it serves HTML pages
-(Google tag, Microsoft Clarity, Cloudflare Web Analytics). A fixture that itself contains such a tag would fail this check."""
+(Google tag, Microsoft Clarity, Cloudflare Web Analytics) and the per-response CSP nonce attribute it stamps on <script> tags. A fixture that itself contains such a tag would fail this check."""
 import os, re, sys, time, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIRS = ['open', 'p', 'transparency-index']
 SCRIPT = re.compile(r'<script\b[^>]*>.*?</script>\n?', re.S)
 MARKERS = ('googletagmanager', 'clarity', 'dataLayer', 'cloudflareinsights')
-strip = lambda html: SCRIPT.sub(lambda m: '' if any(k in m.group(0) for k in MARKERS) else m.group(0), html)
+NONCE = re.compile(r' nonce="[A-Za-z0-9+/=]*"')   # the server stamps a fresh CSP nonce on every <script> it serves: not part of the file
+strip = lambda html: NONCE.sub('', SCRIPT.sub(lambda m: '' if any(k in m.group(0) for k in MARKERS) else m.group(0), html))
 bad = 0; n = 0
 for d in DIRS:
     for base, _, files in os.walk(os.path.join(ROOT, d)):
