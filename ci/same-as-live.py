@@ -3,7 +3,7 @@
 This is what makes the repository a faithful mirror of the published code, not a cleaned-up version of it.
 HTML fixtures are compared after removing the analytics script tags the site adds when it serves HTML pages
 (Google tag, Microsoft Clarity, Cloudflare Web Analytics). A fixture that itself contains such a tag would fail this check."""
-import os, re, sys, urllib.request
+import os, re, sys, time, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIRS = ['open', 'p', 'transparency-index']
@@ -18,6 +18,7 @@ for d in DIRS:
             if '__pycache__' in rel:
                 continue
             url = 'https://kolaboro.com/' + (rel[:-5] if rel.endswith('.html') else rel)
+            url += '?ci=%d' % time.time()   # skip stale edge caches: compare with what the origin serves now
             live = urllib.request.urlopen(urllib.request.Request(url, headers={'user-agent': 'kolaboro-open-ci'}), timeout=30).read()
             mine = open(os.path.join(ROOT, rel), 'rb').read()
             if rel.endswith('.html'):
