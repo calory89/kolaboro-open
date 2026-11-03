@@ -17,6 +17,7 @@ out = {
     'generated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
     'commit': commit or os.environ.get('GITHUB_SHA'),
     'run_url': (os.environ.get('GITHUB_SERVER_URL', '') + '/' + os.environ.get('GITHUB_REPOSITORY', '') + '/actions/runs/' + os.environ['GITHUB_RUN_ID']) if os.environ.get('GITHUB_RUN_ID') else None,
+    'runner': 'GitHub Actions' if os.environ.get('GITHUB_RUN_ID') else 'local run of the repository CI steps (the repository is not public yet)',
     'files_tested': {p: sha(p) for p in ['open/scoring.py', 'p/whatif.js', 'transparency-index/ti-core.js']},
     'engines': [py['engine'], js['engine']],
     'seed_javascript': js.get('seed'),
