@@ -1,0 +1,14 @@
+{
+  "name": "kolaboro-open",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kolaboro's published verifiers, scoring rules, test vectors and evaluation fixtures, with the tests that keep them honest.",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node p/whatif.test.js && node tests/property/props.test.js"
+  },
+  "devDependencies": {
+    "fast-check": "3.23.2"
+  }
+}

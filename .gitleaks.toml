@@ -1,0 +1,8 @@
+# gitleaks configuration: the default rules, plus one documented exception.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public key identifiers ('kb-' + 16 hex) name Kolaboro's PUBLIC signing key (https://kolaboro.com/.well-known/kolaboro-keys.json). They are not secrets."
+regexTarget = "line"
+regexes = ['''"key_id": "kb-[0-9a-f]{16}"''']
