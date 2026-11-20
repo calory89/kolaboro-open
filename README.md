@@ -4,8 +4,24 @@ The code Kolaboro publishes so that nobody has to trust Kolaboro: independent ve
 the rules that turn evidence into a project's score, the fixed test pages its AI desk review is evaluated on,
 and the tests that keep all of it honest.
 
-Kolaboro (https://kolaboro.com) checks off-plan property projects for people buying abroad. Projects are anonymous
-in its open data. Nothing in this repository names a tracked project or a developer.
+Kolaboro (https://kolaboro.com) checks off-plan property projects for people buying abroad. Nothing in this repository
+names a tracked project or a developer; the named project and developer pages, each fact with its source and date, are on the site.
+
+## Main pages on kolaboro.com
+
+| Page | What it is |
+|---|---|
+| [Open data](https://kolaboro.com/data/) | Every dataset and file, CC BY 4.0, with checksums |
+| [Transparency Index](https://kolaboro.com/transparency-index/) | Markets scored 0 to 100 on what developers publish and registers confirm, computed live |
+| [Monthly transparency ranking by market](https://kolaboro.com/reports/transparency/) | The same index frozen once a month, one address per edition, CSV and JSON |
+| [Transparency rankings by place](https://kolaboro.com/rankings/transparency/) | Projects ranked in 30 islands and 30 cities |
+| [How we score](https://kolaboro.com/how-we-score/) | The six checks and the rules implemented in `open/scoring.py` and `p/whatif.js` |
+| [Verify evidence](https://kolaboro.com/verify/) | The verifiers in this repository, running in the browser |
+| [Open data API](https://kolaboro.com/docs/api/) | JSON endpoints, signed answers |
+| [How to cite](https://kolaboro.com/cite/) | Credit lines, BibTeX and licence |
+| [Press kit](https://kolaboro.com/press/) and [monthly data release](https://kolaboro.com/press/monthly/) | Figures and charts you may reuse with credit |
+| [Engineering](https://kolaboro.com/engineering/) | How the site is built, tested and monitored |
+
 
 ## What is here
 
